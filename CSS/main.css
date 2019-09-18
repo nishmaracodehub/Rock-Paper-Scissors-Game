@@ -29,7 +29,7 @@ header h1 {
   border-radius: 4px;
   text-align: center;
   padding: 15px 20px;
-  width: 200px;
+  width: 180px;
   font-size: 25px;
 }
 
@@ -70,7 +70,7 @@ header h1 {
 img {
   width: 6%;
   border-radius: 50%;
-  border: 2px solid #fff;
+  border: 3px solid #fff;
   padding: 1%;
   transition: all 0.3s ease;
 }
@@ -85,4 +85,19 @@ img:hover {
   font-size: 20px;
   font-weight: bold;
   margin-top: 20px;
+}
+
+.green-glow {
+  border: 3px solid #4dcc7d;
+  box-shadow: 0 0 10px #31b43a;
+}
+
+.red-glow {
+  border: 3px solid #fc121b;
+  box-shadow: 0 0 10px #d01115;
+}
+
+.grey-glow {
+  border: 3px solid #464647;
+  box-shadow: 0 0 10px #25292b;
 }
