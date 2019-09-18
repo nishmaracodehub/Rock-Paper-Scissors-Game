@@ -70,7 +70,7 @@ header h1 {
 img {
   width: 6%;
   border-radius: 50%;
-  border: 3px solid #fff;
+  border: 2px solid #fff;
   padding: 1%;
   transition: all 0.3s ease;
 }
@@ -88,16 +88,16 @@ img:hover {
 }
 
 .green-glow {
-  border: 3px solid #4dcc7d;
+  border: 2px solid #4dcc7d;
   box-shadow: 0 0 10px #31b43a;
 }
 
 .red-glow {
-  border: 3px solid #fc121b;
+  border: 2px solid #fc121b;
   box-shadow: 0 0 10px #d01115;
 }
 
 .grey-glow {
-  border: 3px solid #464647;
+  border: 2px solid #464647;
   box-shadow: 0 0 10px #25292b;
 }

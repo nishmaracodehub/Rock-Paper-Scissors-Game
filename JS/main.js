@@ -1,5 +1,7 @@
 let userScore = 0;
 let compScore = 0;
+const userWord = "user".fontsize(3).sub();
+const compWord = "comp".fontsize(3).sub();
 
 // DOM variables (caching DOM variables to use them later)
 const userScore_span = document.getElementById("user-score");
@@ -17,46 +19,27 @@ const getComputerChoice = () => {
   return choices[randomNum];
 };
 
-const win = (user, computer) => {
+const win = (user, computer, userChoice_div) => {
   userScore++;
   userScore_span.innerHTML = userScore;
-  const userWord = "user".fontsize(3).sub();
-  const compWord = "comp".fontsize(3).sub();
-  const userChoice_div = document.getElementById(user);
-  result_p.innerHTML =
-    user === "rock"
-      ? `${user}${userWord} beats ${computer}${compWord}. You Win!`
-      : user === "paper"
-      ? `${user}${userWord} covers ${computer}${compWord}. You Win!`
-      : `${user}${userWord} cuts ${computer}${compWord}. You Win!`;
+  result_p.innerHTML = `${user}${userWord} beats ${computer}${compWord}. You Win!`;
   userChoice_div.classList.add("green-glow");
   setTimeout(() => {
     userChoice_div.classList.remove("green-glow");
   }, 1000);
 };
 
-const lose = (user, computer) => {
+const lose = (user, computer, userChoice_div) => {
   compScore++;
   compScore_span.innerHTML = compScore;
-  const userWord = "user".fontsize(3).sub();
-  const compWord = "comp".fontsize(3).sub();
-  const userChoice_div = document.getElementById(user);
-  result_p.innerHTML =
-    computer === "paper"
-      ? `${computer}${compWord} covers ${user}${userWord}. You Lose!`
-      : computer === "rock"
-      ? `${computer}${compWord} beats ${user}${userWord}. You Lose!`
-      : `${computer}${compWord} cuts ${user}${userWord}. You Lose!`;
+  result_p.innerHTML = `${user}${userWord} loses to ${computer}${compWord}. You Lose!`;
   userChoice_div.classList.add("red-glow");
   setTimeout(() => {
     userChoice_div.classList.remove("red-glow");
   }, 1000);
 };
 
-const draw = (user, computer) => {
-  const userWord = "user".fontsize(3).sub();
-  const compWord = "comp".fontsize(3).sub();
-  const userChoice_div = document.getElementById(user);
+const draw = (user, computer, userChoice_div) => {
   result_p.innerHTML = `${user}${userWord} equals ${computer}${compWord}. It's a Draw!`;
   userChoice_div.classList.add("grey-glow");
   setTimeout(() => {
@@ -66,21 +49,20 @@ const draw = (user, computer) => {
 
 const game = userChoice => {
   const compChoice = getComputerChoice();
-  console.log("userchoice is: " + userChoice);
-  console.log("compChoice is: " + compChoice);
+  const userChoice_div = document.getElementById(userChoice);
   switch (userChoice + compChoice) {
     case "paperrock":
     case "rockscissors":
     case "scissorspaper":
-      win(userChoice, compChoice);
+      win(userChoice, compChoice, userChoice_div);
       break;
     case "paperpaper":
     case "rockrock":
     case "scissorsscissors":
-      draw(userChoice, compChoice);
+      draw(userChoice, compChoice, userChoice_div);
       break;
     default:
-      lose(userChoice, compChoice);
+      lose(userChoice, compChoice, userChoice_div);
       break;
   }
 };
